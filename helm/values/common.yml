@@ -1,0 +1,19 @@
+cronjob:
+  schedule: "0 */2 * * *"
+  jobRestartPolicy: Never
+
+renovate:
+  configIsSecret: true
+  config: |
+    {
+      "platform": "github",
+      "token": "<<vault.renovate/common/API_TOKEN>>",
+      "autodiscover": "true",
+    }
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault

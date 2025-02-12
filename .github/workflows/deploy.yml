@@ -1,0 +1,26 @@
+name: Deploy Renovate
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  renovate:
+    uses: JHOFER-Cloud/helm-ci/.github/workflows/k8s-deploy-template.yml@v1.0.0-dev.3
+    with:
+      app_name: renovate
+      helm_repository: https://docs.renovatebot.com/helm-charts
+      helm_chart: renovate/renovate
+      helm_version: 39.163.0
+      values_path: helm/values
+      vault_url: https://vault.dev.k8.hla1.jhofer.lan
+      vault_base_path: talos
+      vault_kv_version: 2
+      vault_insecure_tls: true
+      pr_deployments: false
+    secrets:
+      KUBE_CONFIG_LIVE: ${{ secrets.KUBE_CONFIG_DEV }} ## HLA1 CONFIG
+      VAULT_TOKEN: ${{ secrets.HLA1_VAULT }}

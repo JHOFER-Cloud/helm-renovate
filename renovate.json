@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": false,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github/workflows/deploy\\.yml$"],
+      "matchStrings": [
+        "helm_chart:\\s*renovate/renovate\\n\\s*helm_version:\\s*(?<currentValue>.+)"
+      ],
+      "depNameTemplate": "renovate/renovate",
+      "datasourceTemplate": "helm",
+      "versioningTemplate": "helm"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["helm"],
+      "matchPackageNames": ["renovate/renovate"],
+      "reviewers": ["ojsef39"]
+    }
+  ]
+}
