@@ -9,7 +9,7 @@ on:
 
 jobs:
   renovate:
-    uses: JHOFER-Cloud/helm-ci/.github/workflows/k8s-deploy-template.yml@v1.0.1
+    uses: JHOFER-Cloud/helm-ci/.github/workflows/k8s-deploy-template.yml@v2.0.0
     with:
       app_name: renovate
       helm_repository: https://docs.renovatebot.com/helm-charts
