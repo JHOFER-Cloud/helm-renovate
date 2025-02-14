@@ -7,17 +7,30 @@
       "customType": "regex",
       "fileMatch": ["^\\.github/workflows/deploy\\.yml$"],
       "matchStrings": [
-        "helm_chart:\\s*renovate/renovate\\n\\s*helm_version:\\s*(?<currentValue>.+)"
+        "helm_chart:\\s*renovate\\n\\s*helm_version:\\s*(?<currentValue>.+)"
       ],
       "depNameTemplate": "renovate/renovate",
       "datasourceTemplate": "helm",
       "versioningTemplate": "helm"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.github/workflows/deploy\\.yml$"],
+      "matchStrings": ["helm-ci_image_tag:\\s*(?<currentValue>.+)"],
+      "depNameTemplate": "JHOFER-Cloud/helm-ci",
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
     {
       "matchDatasources": ["helm"],
       "matchPackageNames": ["renovate/renovate"],
+      "reviewers": ["ojsef39"]
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["JHOFER-Cloud/helm-ci"],
       "reviewers": ["ojsef39"]
     }
   ]
