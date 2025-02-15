@@ -5,27 +5,27 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github/workflows/deploy\\.yml$"],
-      "matchStrings": [
-        "helm_chart:\\s*renovate\\n\\s*helm_version:\\s*(?<currentValue>.+)"
-      ],
-      "depNameTemplate": "renovate/renovate",
+      "fileMatch": ["^.github/workflows/.*\\.ya?ml$"],
+      "matchStrings": ["helm_version:\\s*(?<currentValue>[0-9][.0-9]*)"],
       "datasourceTemplate": "helm",
-      "versioningTemplate": "helm"
+      "registryUrlTemplate": "https://docs.renovatebot.com/helm-charts",
+      "depNameTemplate": "renovate"
     },
     {
       "customType": "regex",
-      "fileMatch": ["^\\.github/workflows/deploy\\.yml$"],
-      "matchStrings": ["helm-ci_image_tag:\\s*(?<currentValue>.+)"],
+      "fileMatch": ["^.github/workflows/.*\\.ya?ml$"],
+      "matchStrings": [
+        "helm-ci/.github/workflows/.*@v(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "helm-ci_image_tag:\\s*(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
       "depNameTemplate": "JHOFER-Cloud/helm-ci",
-      "datasourceTemplate": "github-tags",
-      "versioningTemplate": "semver"
+      "datasourceTemplate": "github-tags"
     }
   ],
   "packageRules": [
     {
       "matchDatasources": ["helm"],
-      "matchPackageNames": ["renovate/renovate"],
+      "matchPackageNames": ["renovate"],
       "reviewers": ["ojsef39"]
     },
     {
