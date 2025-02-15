@@ -3,10 +3,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-
 jobs:
   renovate:
     uses: JHOFER-Cloud/helm-ci/.github/workflows/k8s-deploy-template.yml@v2.0.4
