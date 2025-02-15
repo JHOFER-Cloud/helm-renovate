@@ -26,7 +26,11 @@
     {
       "matchDatasources": ["helm"],
       "matchPackageNames": ["renovate"],
-      "reviewers": ["ojsef39"]
+      "automerge": true,
+      "automergeType": "pr",
+      "major": {
+        "automerge": false
+      }
     },
     {
       "matchDatasources": ["github-tags"],
