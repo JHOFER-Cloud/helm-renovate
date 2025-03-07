@@ -8,7 +8,7 @@ renovate:
     {
       "platform": "github",
       "token": "<<vault.renovate/common/API_TOKEN>>",
-      "autodiscover": true,
+      "autodiscover": true
     }
   securityContext:
     allowPrivilegeEscalation: false

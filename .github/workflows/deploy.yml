@@ -19,5 +19,5 @@ jobs:
       vault_insecure_tls: true
       pr_deployments: false
     secrets:
-      KUBE_CONFIG_LIVE: ${{ secrets.KUBE_CONFIG_DEV }} ## HLA1 CONFIG
+      KUBE_CONFIG_LIVE: ${{ secrets.KUBE_CONFIG_LIVE }} ## HLA1 CONFIG
       VAULT_TOKEN: ${{ secrets.HLA1_VAULT }}
