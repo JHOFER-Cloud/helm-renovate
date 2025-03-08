@@ -16,7 +16,7 @@ jobs:
       vault_url: https://vault.dev.k8.hla1.jhofer.lan
       vault_base_path: talos
       vault_kv_version: 2
-      vault_insecure_tls: true
+      # vault_insecure_tls: true
       pr_deployments: false
     secrets:
       KUBE_CONFIG_LIVE: ${{ secrets.KUBE_CONFIG_LIVE }} ## HLA1 CONFIG
