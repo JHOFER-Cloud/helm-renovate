@@ -1,0 +1,9 @@
+# renovate:
+#   configIsSecret: true
+#   config: |
+#     {
+#       "platform": "github",
+#       "token": "<<vault.renovate/common/API_TOKEN>>",
+#       "autodiscover": true
+#       "dryRun": true
+#     }
