@@ -1,5 +1,5 @@
 cronjob:
-  schedule: "0 * * * *"
+  schedule: "0 1 * * *"
   jobRestartPolicy: Never
 
 renovate:
