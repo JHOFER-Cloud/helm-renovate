@@ -16,7 +16,7 @@ jobs:
       app_name: renovate
       helm_repository: https://docs.renovatebot.com/helm-charts
       helm_chart: renovate
-      helm_version: 39.200.2
+      helm_version: 39.200.3
       values_path: helm/values
       vault_url: https://vault.dev.k8.hla1.jhofer.lan
       vault_base_path: talos
